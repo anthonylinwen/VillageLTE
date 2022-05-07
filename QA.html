@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from census.dgbas.gov.tw/entrance/QA by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 May 2020 07:15:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>行政院主計總處</title>
+    <link href="Content/bootstrap-4.0.0-beta.3/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Content/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="Content/bootstrap-4.0.0-beta.3/dist/js/bootstrap.js"></script>
+
+    
+    <link href="css/qa.css" rel="stylesheet" />
+    <script src="js/web/qa.js"></script>
+
+    <script type="text/javascript">
+        var data_url = "QA/get_qa.html";
+    </script>
+
+</head>
+<body>
+
+
+<div class="title">
+    <div class="icon">
+        <img src="images/index/logo.png" />
+        <div class="text">行政院主計總處</div>
+    </div>
+    <div>
+        三大普查統計資料平台
+    </div>
+    <div class="browser">
+        瀏覽人數：71,476
+    </div>
+    <div class="menu-open">
+        <div class="icon">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- top banner-->
+<div class="top_banner">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="collapse navbar-collapse" id="navbar_menu">
+            <div class="menu-container">
+                <div class="nav-item borde-right">
+				<a href="https://census.dgbas.gov.tw/CensusGIS_Tile/" target="_blank">
+				普查地理資訊平台
+				</a>
+				</div>
+                <div class="nav-item borde-right">
+                    <a href="Chart.html">
+                        互動式統計圖表
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="Game.html">
+                        主題式體驗專區
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="http://dtable.dgbas.gov.tw/statisDgbas/webMain.aspx?sys=100&amp;funid=defjsp" target="_blank">
+                        普查資料動態查詢系統
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="QA.html">
+                        答客問
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="DataDesc.html">
+                        資料說明
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+    
+
+
+
+<div class="main">
+    <div class="map_path">
+        <div>
+            <a href="index.html">
+                首頁
+            </a>
+        </div>
+        <div>
+            &gt;
+        </div>
+        <div>
+            答客問
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="tabs">
+            <div class="fas type_1 active" onclick="change_type(1);">
+                <div class="text">
+                    人口及住宅
+                </div>
+            </div>
+            <div class="fas type_2" onclick="change_type(2);">
+                <div class="text">
+                    農林漁牧業
+                </div>
+            </div>
+            <div class="fas type_3" onclick="change_type(3);">
+                <div class="text">
+                    工業及服務業
+                </div>
+            </div>
+        </div>
+
+        <div class="data-body">
+            <div class="type_1 show" id="type_1_list">
+                <div class="sub_type form-inline">
+                    分類：
+                    <select class="form-control" onchange="get_data(1, 1);">
+                        <option value="">
+                            不分類
+                        </option>
+
+                    </select>
+                </div>
+                <div class="list">
+
+                </div>
+                <div class="page">
+                    <nav aria-label="...">
+                        <ul class="pagination" id="type_1_page"></ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="type_2" id="type_2_list">
+                <div class="sub_type form-inline">
+                    分類：
+                    <select class="form-control" onchange="get_data(2, 1);">
+                        <option value="">
+                            不分類
+                        </option>
+
+                    </select>
+                </div>
+                <div class="list">
+
+                </div>
+                <div class="page">
+                    <nav aria-label="...">
+                        <ul class="pagination" id="type_2_page"></ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="type_3" id="type_3_list">
+                <div class="sub_type form-inline">
+                    分類：
+                    <select class="form-control" onchange="get_data(3, 1);">
+                        <option value="">
+                            不分類
+                        </option>
+
+                    </select>
+                </div>
+                <div class="list">
+
+                </div>
+                <div class="page">
+                    <nav aria-label="...">
+                        <ul class="pagination" id="type_3_page"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="page_templete" style="display: none;">
+    <li class="page-item">
+        <a class="page-link" href="javascript: get_data({{type}}, {{index}})">{{page}}</a>
+    </li>
+</div>
+
+<div id="item_templete" style="display: none;">
+    <div class="item">
+        <div class="title">
+            <div class="icon">
+                <i class="far fa-question-circle"></i>
+            </div>
+            <div class="text">
+                {{title}}
+            </div>
+        </div>
+        <div class="data">
+            <div class="text">
+                {{content}}
+            </div>
+            <div class="photo">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<!-- Mirrored from census.dgbas.gov.tw/entrance/QA by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 May 2020 07:15:41 GMT -->
+</html>

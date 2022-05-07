@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>宜安里辦公室</title>
+    <link href="Content/bootstrap-4.0.0-beta.3/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Content/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="Content/bootstrap-4.0.0-beta.3/dist/js/bootstrap.js"></script>
+
+    
+    <link href="css/chart.css" rel="stylesheet" />
+    <script src="js/web/chart.js"></script>
+
+    <script type="text/javascript">
+        var cover_path = "/VillageAKM/Data_href/";
+        var chart_url = "/VillageAKM/PHP/GetData.php";
+
+        var default_main = null;
+
+    </script>
+
+</head>
+<body>
+
+
+<div class="title">
+    <div class="icon">
+        <img src="images/index/logo.png" />
+        <!--div class="text">服務網</div -->
+    </div>
+    <div>
+        宜安里公共政務服務雲
+    </div>
+    <div class="browser">
+        瀏覽人數：1,099,778
+    </div>
+    <div class="menu-open">
+        <div class="icon">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- top banner-->
+<div class="top_banner">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="collapse navbar-collapse" id="navbar_menu">
+            <div class="menu-container">
+                <div class="nav-item borde-right">
+                    <a href="Chart.html">主題式里政</a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="game.html" target="_blank">互動式里政</a>
+                </div>
+                <div class="nav-item borde-right">
+				<a href="https://census.dgbas.gov.tw/CensusGIS_Tile/" target="_blank">地方日誌</a>
+				</div>
+                <div class="nav-item borde-right">
+                    <a href="http://dtable.dgbas.gov.tw/statisDgbas/webMain.aspx?sys=100&amp;funid=defjsp" target="_blank">動態即時查詢</a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="QA.html">QA你問我答</a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="DataDesc.html">查詢說明</a>
+                </div>
+				<div class="nav-item">
+                    <a href="/GiraffeAdmin/index.html" style="font-weight:bold;color:#bbb" target="_blank">後台管理</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+    
+
+<div class="left-1">
+    <div class="menu">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="menu-container">
+                    <!-- search -->
+                    <div class="search">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="tb_keyword"
+                                   placeholder="里政搜尋">
+                            <div class="input-group-append" onclick="send_keyword();">
+                                <span class="input-group-text" id="basic-addon2">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="sub-type recommend">
+                        <div class="line recommend" data-recommend="-1">
+                            <div class="item">
+                                <a href="javascript: void(0);" onclick="select_sub(0, 0);">
+                                    政府資訊公開專區
+                                </a>
+                                <div class="num icon_recommend">
+                                    34
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- main type -->
+                            <div class="main-type" data-main-id="1">
+                                <a href="#" >
+                                    鄰里資訊
+                                </a>
+                                <div class="num icon_1">
+                                    30
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_1">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_1">
+
+                                <div class="line recommend" data-sub-id="1">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(1, 1);">
+                                            里民活動場所專區
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="2">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 2);">
+                                              里幹事選拔及考核
+                                            </a>
+                                            <div class="num icon_1">
+                                                23
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="3">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 3);">
+                                                里民活動中心專區
+                                            </a>
+                                            <div class="num icon_1">
+                                                2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="4">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 4);">
+                                                 里鄰長通訊一覽表
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="5">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 5);">
+                                                 里活動訊息
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="6">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 6);">
+                                                 社區發展協會
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="7">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 7);">
+                                                 活動花絮
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>									
+                            </div>
+                            <div class="main-type" data-main-id="2">
+                                <a href="#">
+                                    防災救災資訊網
+                                </a>
+                                <div class="num icon_2">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_2">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_2">
+
+                                <div class="line recommend" data-sub-id="8">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(2, 8);">
+                                            單位通報聯繫窗口
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="9">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 9);">
+                                                各鄰疏散避難資訊圖
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="10">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 10);">
+                                                新北市防災立即GO
+                                            </a>
+                                            <div class="num icon_2">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="11">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 11);">
+                                               行動防災APP
+                                            </a>
+                                            <div class="num icon_2">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="12">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 12);">
+                                                地區災害防救計畫
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="13">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 13);">
+                                                災時緊急聯絡資訊
+                                            </a>
+                                            <div class="num icon_2">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="14">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 14);">
+                                                災時緊急聯絡資訊
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="15">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 15);">
+                                                災害應變中心
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="16">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 16);">
+                                                本市可供避難收容處所一覽表 
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="17">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 17);">
+                                                類防災任務學校一覽表 
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="18">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 18);">
+                                               避難暨物資儲放地圖 
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="19">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 19);">
+                                               災害防救人力機具能量一覽表 
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="20">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 20);">
+                                               防災公園
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="21">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 21);">
+                                               救災知識 
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="22">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 22);">
+                                               防災宣導 
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="23">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 23);">
+                                               相關網站
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>										
+                            </div>
+                            <div class="main-type" data-main-id="3">
+                                <a href="#" onclick="select_main(3);">
+                                    反應管道
+                                </a>
+                                <div class="num icon_3">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_3">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_3">
+
+                                <div class="line recommend" data-sub-id="24">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(3, 24);">
+                                            電話與傳真
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="25">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 25);">
+                                                	
+                                               單一陳情
+                                            </a>
+                                            <div class="num icon_3">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="26">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 26);">
+                                                危險道路通報專線
+                                            </a>
+                                            <div class="num icon_3">
+                                                14
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="27">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 27);">
+                                                免費法律諮詢
+                                            </a>
+                                            <div class="num icon_3">
+                                                13
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="line" data-sub-id="28">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 28);">
+                                                民眾回應
+                                            </a>
+                                            <div class="num icon_3">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+     <!-- Menu 增加 Begining -->
+                            <div class="main-type" data-main-id="4">
+                                <a href="#" >
+                                    申請案件
+                                </a>
+                                <div class="num icon_4">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_4">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_4">
+
+                                <div class="line recommend" data-sub-id="29">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(4, 29);">      	
+                                             訴願相關法令
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="30">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 30);">
+                                                訴願相關書表下載
+                                            </a>
+                                            <div class="num icon_4">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="31">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 31);">
+                                                法務局訴願須知
+                                            </a>
+                                            <div class="num icon_4">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                          
+                            <div class="main-type" data-main-id="5">
+                                <a href="#">
+                                    公文附件下載專區
+                                </a>
+                                <div class="num icon_5">
+                                    33
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_5">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_5">
+
+                                <div class="line recommend" data-sub-id="32">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(5, 32);">
+                                            跨里申辦服務
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="line" data-sub-id="33">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 33);">
+                                                民政業務
+                                            </a>
+                                            <div class="num icon_5">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="34">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 34);">
+                                                社會業務
+                                            </a>
+                                            <div class="num icon_5">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="35">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 35);">
+                                                調解業務
+                                            </a>
+                                            <div class="num icon_5">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="36">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 36);">
+                                                人文業務
+                                            </a>
+                                            <div class="num icon_5">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="37">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 37);">
+                                                經建業務
+                                            </a>
+                                            <div class="num icon_6">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="38">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 38);">
+                                                綜合類申請案件
+                                            </a>
+                                            <div class="num icon_6">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>                                                     
+     <!-- Menu 增加 Ending --> 
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</div>
+
+
+<div class="left-2 chart-container">
+<div class="title_sub2">
+    歷史資料區
+</div>
+<div class="row">
+<ul type="square">
+<table id="ContentPlaceHolder1_dlindex" cellspacing="0" style="width:100%;border-collapse:collapse;">
+	<tbody><tr>
+		<td id="table_1_0">
+        <li><span><a target="_self" href="News8.aspx?n=8F2E9BE3EB8A131F&amp;sms=CB3E9047A7C84DD1" title="經濟研究年刊">經濟研究年刊</a></span></li>
+        </td>
+	</tr><tr>
+		<td headers="table_1_0">
+         <li><span><a target="_self" href="News.aspx?n=418E479D85AAFFA3&amp;sms=876382466F99DDF4" title="當前經濟情勢月報">當前經濟情勢月報</a></span></li>
+    </td>
+	</tr><tr>
+		<td headers="table_1_0"> 
+        <li><span><a target="_self" href="Content_List.aspx?n=4A786917E9360DBF" title="兩岸經貿交流相關統計指標">兩岸經貿交流相關統計指標</a></span></li>
+    </td>
+	</tr><tr>
+		<td headers="table_1_0">
+         <li><span><a target="_self" href="cp.aspx?n=3DEC136B4737354C&amp;s=7C91190E881E8492" title="商品出口轉型行動方案">商品出口轉型行動方案</a></span></li>
+        </td>
+	</tr><tr>
+		<td headers="table_1_0">
+         <li><span><a target="_self" href="cp.aspx?n=EE21F345743023EE&amp;s=DB9BA3696591E047" title="經濟體質強化措施">經濟體質強化措施</a></span></li>
+    </td>
+	</tr><tr>
+		<td headers="table_1_0">
+        <li><span><a target="_self" href="Content_List.aspx?n=343AF16FB80B488F" title="擴大投資方案">擴大投資方案</a></span></li>
+    </td>
+	</tr><tr>
+		<td headers="table_1_0">  
+        <li><span><a target="_self" href="Content_List.aspx?n=CE8524192720696F&amp;upn=FFBA69B8D9791D2D" title="ide@ Taiwan 2020(創意臺灣)政策白皮書">ide@ Taiwan 2020(創意臺灣)政策白皮書</a></span></li>
+    </td>
+	</tr><tr>
+		<td headers="table_1_0">
+        <li><span><a target="_self" href="Content_List.aspx?n=7A15DD41921FE0C6" title="財經月報會議成果綜整報告及政府八年施政成果">財經月報會議成果綜整報告及政府八年施政成果</a></span></li>
+    </td>
+	</tr>
+</tbody>
+</table>
+</ul>
+</div>
+</div>
+
+<!-- templete-->
+<div id="chart_no_data" style="display: none;">
+    <div class="no_data">
+        <div>
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            <br />
+            查詢條件, 沒有相符合的圖表
+            <br />
+            請重新查詢
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>

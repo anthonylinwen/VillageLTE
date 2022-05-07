@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>行政院主計總處</title>
+    <link href="/entrance/Content/bootstrap-4.0.0-beta.3/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/entrance/Content/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="/entrance/js/jquery-3.2.1.min.js"></script>
+    <script src="/entrance/Content/bootstrap-4.0.0-beta.3/dist/js/bootstrap.js"></script>
+
+    
+    <link href="/entrance/css/chart.css" rel="stylesheet" />
+    <script src="/entrance/js/web/chart.js"></script>
+
+    <script type="text/javascript">
+        var cover_path = "/entrance/chart_cover/";
+        var chart_url = "/entrance/Chart/GetChart";
+
+        var default_main = null;
+
+    </script>
+
+</head>
+<body>
+
+
+<div class="title">
+    <div class="icon">
+        <img src="/entrance/images/index/logo.png" />
+        <div class="text">行政院主計總處</div>
+    </div>
+    <div>
+        三大普查統計資料平台
+    </div>
+    <div class="browser">
+        瀏覽人數：71,830
+    </div>
+    <div class="menu-open">
+        <div class="icon">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- top banner-->
+<div class="top_banner">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="collapse navbar-collapse" id="navbar_menu">
+            <div class="menu-container">
+                <div class="nav-item borde-right">
+				<a href="https://census.dgbas.gov.tw/CensusGIS_Tile/" target="_blank">
+				普查地理資訊平台
+				</a>
+				</div>
+                <div class="nav-item borde-right">
+                    <a href="/entrance/Chart">
+                        互動式統計圖表
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="/entrance/Game">
+                        主題式體驗專區
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="http://dtable.dgbas.gov.tw/statisDgbas/webMain.aspx?sys=100&funid=defjsp" target="_blank">
+                        普查資料動態查詢系統
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="/entrance/QA">
+                        答客問
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="/entrance/DataDesc">
+                        資料說明
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+    
+
+<div class="left-1">
+    <div class="menu">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="menu-container">
+                    <!-- search -->
+                    <div class="search">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="tb_keyword"
+                                   placeholder="圖表搜尋">
+                            <div class="input-group-append" onclick="send_keyword();">
+                                <span class="input-group-text" id="basic-addon2">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="sub-type recommend">
+                        <div class="line recommend" data-recommend="-1">
+                            <div class="item">
+                                <a href="javascript: void(0);" onclick="select_recommend(-1);">
+                                    綜合推薦主題
+                                </a>
+                                <div class="num icon_recommend">
+                                    34
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- main type -->
+                            <div class="main-type" data-main-id="1">
+                                <a href="javascript: void(0);" onclick="select_main(1);">
+                                    人口及住宅普查
+                                </a>
+                                <div class="num icon_1">
+                                    30
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_1">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_1">
+
+                                <div class="line recommend" data-recommend="1">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(1);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="1">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 1);">
+                                                人口
+                                            </a>
+                                            <div class="num icon_1">
+                                                23
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="2">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 2);">
+                                                住戶
+                                            </a>
+                                            <div class="num icon_1">
+                                                2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="3">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 3);">
+                                                住宅
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="main-type" data-main-id="2">
+                                <a href="javascript: void(0);" onclick="select_main(2);">
+                                    農林漁牧業普查
+                                </a>
+                                <div class="num icon_2">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_2">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_2">
+
+                                <div class="line recommend" data-recommend="2">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(2);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="4">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 4);">
+                                                家數
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="5">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 5);">
+                                                資源
+                                            </a>
+                                            <div class="num icon_2">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="6">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 6);">
+                                                家庭勞動力
+                                            </a>
+                                            <div class="num icon_2">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="7">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 7);">
+                                                資源及勞動投入
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="8">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 8);">
+                                                收入狀況
+                                            </a>
+                                            <div class="num icon_2">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="9">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 9);">
+                                                縣市別分析
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="main-type" data-main-id="3">
+                                <a href="javascript: void(0);" onclick="select_main(3);">
+                                    工業及服務業普查
+                                </a>
+                                <div class="num icon_3">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_3">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_3">
+
+                                <div class="line recommend" data-recommend="3">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(3);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="10">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 10);">
+                                                產業結構
+                                            </a>
+                                            <div class="num icon_3">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="11">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 11);">
+                                                投入產出效能
+                                            </a>
+                                            <div class="num icon_3">
+                                                14
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="12">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 12);">
+                                                經營優化
+                                            </a>
+                                            <div class="num icon_3">
+                                                13
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="13">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 13);">
+                                                中小企業
+                                            </a>
+                                            <div class="num icon_3">
+                                                4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="14">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 14);">
+                                                縣市及區域分析
+                                            </a>
+                                            <div class="num icon_3">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="15">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 15);">
+                                                新興產業
+                                            </a>
+                                            <div class="num icon_3">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</div>
+
+<div class="left-2 chart-container">
+    <div class="row">
+    </div>
+</div>
+
+<!-- templete-->
+<div id="chart_item_templete" style="display: none;">
+    <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+        <a href="{url}" target="_blank">
+            <div class="chart-item"
+                 style="background-image: url('{img}');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}">
+                    {short-name}
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div id="chart_no_data" style="display: none;">
+    <div class="no_data">
+        <div>
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            <br />
+            查詢條件, 沒有相符合的圖表
+            <br />
+            請重新查詢
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

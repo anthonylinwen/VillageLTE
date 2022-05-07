@@ -1,0 +1,48 @@
+<div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+        <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html" target="_blank">
+            <div class="chart-item" style="background-image: url('{img}');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="農林漁牧業普查家數" data-short="農林漁牧業普查家數">
+                    農林漁牧業普查家數
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+ <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+        <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html" target="_blank">
+            <div class="chart-item" style="background-image: url('/entrance/chart_cover/526bf018-d634-4c01-b2c1-1dfbf6624c9e.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="農林漁牧業普查家數" data-short="農林漁牧業普查家數">
+                    農林漁牧業普查家數
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+else
+                {
+                    if (data.typeid == "1")
+				        html = html.replace("{url}", "ActionViews/POP.html?target=" + data.id + "&title=" + data.name);
+                    else if (data.typeid == "2")tb = "<table width='100%' cellpadding='10'><tr><td>"
+data = {name: "農林漁牧業普查家數", url: "https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html", img: "526bf018-d634-4c01-b2c1-1dfbf6624c9e.png", typeid: "2", id: "221"}, result = Array(34), i = 0
+short_name = "農林漁牧業普查家數"
+cut_len = 18
+html = "↵    <div onmousemove="show_text(this);" onmouseout="hide_text(this);">↵        <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html" target="_blank">↵            <div class="chart-item" style="background-image: url('/entrance/chart_cover/526bf018-d634-4c01-b2c1-1dfbf6624c9e.png');↵                        background-position: top center;↵                        background-size: cover;">↵                <div class="text" data-text="農林漁牧業普查家數" data-short="農林漁牧業普查家數">↵                    農林漁牧業普查家數↵                </div>↵            </div>↵        </a>↵    </div>↵"
+data = {name: "農林漁牧業普查家數", url: "https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html", img: "526bf018-d634-4c01-b2c1-1dfbf6624c9e.png", typeid: "2", id: "221"}
+short_name = "農林漁牧業普查家數"
+url = "https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html", data = {name: "農林漁牧業普查家數", url: "https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html", img: "526bf018-d634-4c01-b2c1-1dfbf6624c9e.png", typeid: "2", id: "221"}
+isurl = true
+isurl = true
+html = "↵    <div onmousemove="show_text(this);" onmouseout="hide_text(this);">↵        <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html" target="_blank">↵            <div class="chart-item" style="background-image: url('/entrance/chart_cover/526bf018-d634-4c01-b2c1-1dfbf6624c9e.png');↵                        background-position: top center;↵                        background-size: cover;">↵                <div class="text" data-text="農林漁牧業普查家數" data-short="農林漁牧業普查家數">↵                    農林漁牧業普查家數↵                </div>↵            </div>↵        </a>↵    </div>↵", data = {name: "農林漁牧業普查家數", url: "https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html", img: "526bf018-d634-4c01-b2c1-1dfbf6624c9e.png", typeid: "2", id: "221"}
+data = {name: "農林漁牧業普查家數", url: "https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html", img: "526bf018-d634-4c01-b2c1-1dfbf6624c9e.png", typeid: "2", id: "221"}
+html = "↵    <div onmousemove="show_text(this);" onmouseout="hide_text(this);">↵        
+                        html = html.replace("{url}", "ActionViews/AFFH.html?target=" + data.id + "&title=" + data.name);
+                    else if (data.typeid == "3")
+                        html = html.replace("{url}", "ActionViews/ISI.html?target=" + data.id + "&title=" + data.name);
+                }
+                

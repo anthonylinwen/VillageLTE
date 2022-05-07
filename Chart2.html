@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WWW Website</title>
+    <link href="Content/bootstrap-4.0.0-beta.3/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Content/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="Content/bootstrap-4.0.0-beta.3/dist/js/bootstrap.js"></script>
+
+    
+    <link href="css/chart.css" rel="stylesheet" />
+    <script src="js/web/chart.js"></script>
+
+    <script type="text/javascript">
+        var cover_path = "/GiraffeMeal/chart_cover/";
+        var chart_url = "/GiraffeMeal/PHP/GetChart";
+
+        var default_main = null;
+
+    </script>
+
+</head>
+<body>
+
+
+<div class="title">
+    <div class="icon">
+        <img src="images/index/logo.png" />
+        <div class="text">外送平台</div>
+    </div>
+    <div>
+        長頸鹿美食點餐平台
+    </div>
+    <div class="browser">
+        瀏覽人數：71,474
+    </div>
+    <div class="menu-open">
+        <div class="icon">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- top banner-->
+<div class="top_banner">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="collapse navbar-collapse" id="navbar_menu">
+            <div class="menu-container">
+                <div class="nav-item borde-right">
+				<a href="https://census.dgbas.gov.tw/CensusGIS_Tile/" target="_blank">
+				美食餐廳地理資訊
+				</a>
+				</div>
+                <div class="nav-item borde-right">
+                    <a href="Chart.html">
+                        主題式美食體驗
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="Game.html">
+                        互動式統計圖表
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="http://dtable.dgbas.gov.tw/statisDgbas/webMain.aspx?sys=100&amp;funid=defjsp" target="_blank">
+                        動態即時查詢
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="QA.html">
+                        QA你問我答
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="DataDesc.html">
+                        查詢說明
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+    
+
+<div class="left-1">
+    <div class="menu">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="menu-container">
+                    <!-- search -->
+                    <div class="search">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="tb_keyword"
+                                   placeholder="圖表搜尋">
+                            <div class="input-group-append" onclick="send_keyword();">
+                                <span class="input-group-text" id="basic-addon2">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="sub-type recommend">
+                        <div class="line recommend" data-recommend="-1">
+                            <div class="item">
+                                <a href="javascript: void(0);" onclick="select_recommend(-1);">
+                                    綜合推薦美食
+                                </a>
+                                <div class="num icon_recommend">
+                                    34
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- main type -->
+                            <div class="main-type" data-main-id="1">
+                                <a href="javascript: void(0);" onclick="select_main(1);">
+                                    中式料理
+                                </a>
+                                <div class="num icon_1">
+                                    30
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_1">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_1">
+
+                                <div class="line recommend" data-recommend="1">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(1);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="1">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 1);">
+                                                珍味香港燒臘
+                                            </a>
+                                            <div class="num icon_1">
+                                                23
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="2">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 2);">
+                                                川味滿漢全席
+                                            </a>
+                                            <div class="num icon_1">
+                                                2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="3">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 3);">
+                                                 暮藏和牛鍋物
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="main-type" data-main-id="2">
+                                <a href="javascript: void(0);" onclick="select_main(2);">
+                                    美式料理
+                                </a>
+                                <div class="num icon_2">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_2">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_2">
+
+                                <div class="line recommend" data-recommend="2">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(2);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="4">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 4);">
+                                                麥克漢堡
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="5">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 5);">
+                                                義式披薩
+                                            </a>
+                                            <div class="num icon_2">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="6">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 6);">
+                                                油煎香腸
+                                            </a>
+                                            <div class="num icon_2">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="7">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 7);">
+                                                德國豬腳
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="8">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 8);">
+                                                核桃蛋糕
+                                            </a>
+                                            <div class="num icon_2">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="9">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 9);">
+                                                炒蛋三明治
+                                            </a>
+                                            <div class="num icon_2">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="main-type" data-main-id="3">
+                                <a href="javascript: void(0);" onclick="select_main(3);">
+                                    泰式料理
+                                </a>
+                                <div class="num icon_3">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_3">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_3">
+
+                                <div class="line recommend" data-recommend="3">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(3);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="10">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 10);">
+                                                椒麻檸檬雞
+                                            </a>
+                                            <div class="num icon_3">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="11">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 11);">
+                                                椰漿糯米飯
+                                            </a>
+                                            <div class="num icon_3">
+                                                14
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="12">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 12);">
+                                                咖哩炒河粉
+                                            </a>
+                                            <div class="num icon_3">
+                                                13
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="13">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 13);">
+                                                酸辣鮮蝦麵
+                                            </a>
+                                            <div class="num icon_3">
+                                                4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="14">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 14);">
+                                                檸檬松阪豬
+                                            </a>
+                                            <div class="num icon_3">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="15">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 15);">
+                                                新興產業
+                                            </a>
+                                            <div class="num icon_3">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+     <!-- Menu 增加 Begining -->
+                            <div class="main-type" data-main-id="4">
+                                <a href="javascript: void(0);" onclick="select_main(4);">
+                                    歐式料理
+                                </a>
+                                <div class="num icon_4">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_4">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_4">
+
+                                <div class="line recommend" data-recommend="2">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(4);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="16">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 16);">
+                                                麥克漢堡
+                                            </a>
+                                            <div class="num icon_4">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="17">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 17);">
+                                                義式披薩
+                                            </a>
+                                            <div class="num icon_4">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="18">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 18);">
+                                                油煎香腸
+                                            </a>
+                                            <div class="num icon_4">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="19">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 19);">
+                                                德國豬腳
+                                            </a>
+                                            <div class="num icon_4">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="20">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 20);">
+                                                核桃蛋糕
+                                            </a>
+                                            <div class="num icon_4">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="21">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 21);">
+                                                炒蛋三明治
+                                            </a>
+                                            <div class="num icon_4">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="main-type" data-main-id="5">
+                                <a href="javascript: void(0);" onclick="select_main(5);">
+                                    韓式料理
+                                </a>
+                                <div class="num icon_2">
+                                    23
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_5">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_5">
+
+                                <div class="line recommend" data-recommend="2">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(5);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="line" data-sub-id="22">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 22);">
+                                                麥克漢堡
+                                            </a>
+                                            <div class="num icon_5">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="23">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 23);">
+                                                義式披薩
+                                            </a>
+                                            <div class="num icon_5">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="24">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 24);">
+                                                油煎香腸
+                                            </a>
+                                            <div class="num icon_5">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="25">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 25);">
+                                                德國豬腳
+                                            </a>
+                                            <div class="num icon_5">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="26">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 26);">
+                                                核桃蛋糕
+                                            </a>
+                                            <div class="num icon_5">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="27">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 27);">
+                                                炒蛋三明治
+                                            </a>
+                                            <div class="num icon_5">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="main-type" data-main-id="6">
+                                <a href="javascript: void(0);" onclick="select_main(6);">
+                                    義式料理
+                                </a>
+                                <div class="num icon_2">
+                                    33
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_6">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_6">
+
+                                <div class="line recommend" data-recommend="2">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_recommend(6);">
+                                            推薦主題
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="line" data-sub-id="28">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 28);">
+                                                麥克漢堡
+                                            </a>
+                                            <div class="num icon_6">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="29">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 29);">
+                                                義式披薩
+                                            </a>
+                                            <div class="num icon_6">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="30">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 30);">
+                                                油煎香腸
+                                            </a>
+                                            <div class="num icon_6">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="31">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 31);">
+                                                德國豬腳
+                                            </a>
+                                            <div class="num icon_6">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="32">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 32);">
+                                                核桃蛋糕
+                                            </a>
+                                            <div class="num icon_6">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="33">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 33);">
+                                                炒蛋三明治
+                                            </a>
+                                            <div class="num icon_6">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>                                                     
+     <!-- Menu 增加 Ending --> 
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</div>
+
+<div class="left-2 chart-container">
+  <div class="row">
+     <table width="100%" cellpadding="10">
+      <tbody>
+        <tr> <!-- == #1 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 1 --> 
+        <tr> <!-- == #2 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 2 --> 
+        <tr> <!-- == #3 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 3 -->        
+         <tr> <!-- == #4 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 4 -->
+       <tr> <!-- == #5 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 5 -->
+       <tr> <!-- == #6 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 6 -->
+       <tr> <!-- == #7 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 7 --> 
+       <tr> <!-- == #8 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 8 -->
+       <tr> <!-- == #9 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 9 --> 
+       <tr> <!-- == #10 -->
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>
+         <td>
+          <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+           <a href="https://www.stat.gov.tw/public/data/dgbas04/bc1/2015census/AIH05.html"  target="_blank">
+             <div class="chart-item"
+                 style="background-image: url('572.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+           </a> 
+          </div>
+         </td>          
+       </tr> <!--Ending  # 10 -->                   
+       </tbody>   
+      </table>
+     </div>
+</div>
+
+<!-- templete-->
+
+<div id="chart_item_templete" style="display: none;">
+    <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+        <a href="{url}" target="_blank">
+            <div class="chart-item"
+                 style="background-image: url('571.png');
+                        background-position: top center;
+                        background-size: cover;">
+                <div class="text" data-text="{name}" data-short="{short-name}" style="height: 40px;">
+                    火腿餐(一)
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+<div id="chart_no_data" style="display: none;">
+    <div class="no_data">
+        <div>
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            <br />
+            查詢條件, 沒有相符合的圖表
+            <br />
+            請重新查詢
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>

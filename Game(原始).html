@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>長頸鹿美食點餐平台</title>
+    <link href="Content/bootstrap-4.0.0-beta.3/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Content/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="Content/bootstrap-4.0.0-beta.3/dist/js/bootstrap.js"></script>
+
+    
+    <link href="css/chart.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        var app;
+
+        $(document).ready(function () {
+            return app.init();
+        });
+        app = {
+            text: "歡迎來到主題式體驗專區，由一群達人、博客、直播台主建構出6個主題情境，以視覺化動態方式呈現結果，因食材特性不同，提供多樣的味覺體驗，讓我們一探飲食生活有趣而真實的面目吧!",
+            index: 0,
+            chars: 0,
+            speed: 100,
+            container: "#containtext .content",
+            init: function () {
+                this.chars = this.text.length;
+                return this.write();
+            },
+            write: function () {
+                if (this.index == 12)
+                    $(this.container).append('<br />');
+                $(this.container).append(this.text[this.index]);
+                if (this.index < this.chars) {
+                    this.index++;
+                    return window.setTimeout(function () {
+                        return app.write();
+                    }, this.speed);
+                }
+            }
+        };
+    </script>
+
+</head>
+<body>
+
+
+<div class="title">
+    <div class="icon">
+        <img src="images/index/logo.png" />
+        <div class="text"></div>
+    </div>
+    <div>
+        長頸鹿美食點餐平台
+    </div>
+    <div class="browser">
+        瀏覽人數：71,475
+    </div>
+    <div class="menu-open">
+        <div class="icon">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- top banner-->
+<div class="top_banner">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="collapse navbar-collapse" id="navbar_menu">
+            <div class="menu-container">
+                <div class="nav-item borde-right">
+				<a href="https://census.dgbas.gov.tw/CensusGIS_Tile/" target="_blank">
+				普查地理資訊平台
+				</a>
+				</div>
+                <div class="nav-item borde-right">
+                    <a href="Chart.html">
+                        互動式統計圖表
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="Game.html">
+                        主題式體驗專區
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="http://dtable.dgbas.gov.tw/statisDgbas/webMain.aspx?sys=100&amp;funid=defjsp" target="_blank">
+                        普查資料動態查詢系統
+                    </a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="QA.html">
+                        答客問
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="DataDesc.html">
+                        資料說明
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+    
+<div class="game-container">
+    <div id="containtext">
+        <div class="content"></div>
+        <div class="dash"></div>
+    </div>
+    <div id="farmbtn" class="gimage">
+        <a href="https://census.dgbas.gov.tw/CensusGIS_Game/#/FarmGame/start">
+            <img src="images/game/Farm.svg" />
+        </a>
+    </div>
+    <div id="foodbtn" class="gimage g2">
+        <a href="https://census.dgbas.gov.tw/CensusGIS_Game/#/FoodGame/start">
+            <img src="images/game/Food.svg" />
+        </a>
+    </div>
+    <div id="lifebtn" class="gimage">
+        <a href="https://census.dgbas.gov.tw/CensusGIS_Game/#/LifeGame/start">
+            <img src="images/game/Life.svg" />
+        </a>
+    </div>
+    <div id="workbtn" class="gimage">
+        <a href="https://census.dgbas.gov.tw/CensusGIS_Game/#/WorkGame/start">
+            <img src="images/game/Work.svg" />
+        </a>
+    </div>
+    <div id="languagebtn" class="gimage g2">
+        <a href="https://census.dgbas.gov.tw/CensusGIS_Game/#/LanguageGame/start">
+            <img src="images/game/Language.svg" />
+        </a>
+    </div>
+    <div id="housebtn" class="gimage g2">
+        <a href="https://census.dgbas.gov.tw/CensusGIS_Game_House/">
+            <img src="images/game/House.svg" />
+        </a>
+    </div>
+</div>
+</body>
+
+<!-- Mirrored from census.dgbas.gov.tw/entrance/Game by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 May 2020 07:15:40 GMT -->
+</html>

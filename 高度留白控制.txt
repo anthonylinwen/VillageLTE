@@ -1,0 +1,28 @@
+  //  $('div.row').height(screen.height);
+   // ======
+    var infoHeight = $('div.row').height;
+    var defHeight = $(window).height ;
+            // 如果高度超出
+            if (infoHeight > defHeight) {
+                // 给p设置默认高度,隐藏超出部分
+                $('.cor-introduce').css('height', defHeight + 'px');
+                //加按钮
+                $(".introduce-more-box").append('<a href="javascript:;" class="iconfont intro-more">&#xe61c;</a>');
+
+                // 点击按钮
+                $(".intro-more").click(function() {
+                    var curHeight = $('.cor-introduce').height();
+                    if (curHeight == defHeight) {
+                        $(".cor-introduce").height("auto");
+                        $(this).html('<a href="javascript:;" class="iconfont intro-more">&#xe61b;</a>')
+                    } else{
+                        $('.cor-introduce').height(defHeight);
+                        $(this).html('<a href="javascript:;" class="iconfont intro-more">&#xe61c;</a>');
+                    };
+                });
+            } 
+   
+   
+   
+   
+   //======

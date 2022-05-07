@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>北市圖總館樂齡英語共學堂</title>
+    <link href="Content/bootstrap-4.0.0-beta.3/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="Content/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="Content/bootstrap-4.0.0-beta.3/dist/js/bootstrap.js"></script>   
+    <link href="css/chart.css" rel="stylesheet" />
+    <script src="js/web/chart.js"></script>
+    <script type="text/javascript">
+        var cover_path = "/VillageAKM8/Data_href/";
+        var chart_url = "/VillageAKM8/PHP/GetData.php";
+        var default_main = null;
+
+    </script>
+
+</head>
+<body>
+
+
+<div class="title">
+    <div class="icon">
+        <img src="images/index/logo.png" />
+        <!--div class="text">服務網</div -->
+    </div>
+    <div>
+        市圖總館樂齡英語共學堂
+    </div>
+    <div class="browser">
+        瀏覽人數：1,099,778
+    </div>
+    <div class="menu-open">
+        <div class="icon">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- top banner-->
+<div class="top_banner">
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="collapse navbar-collapse" id="navbar_menu">
+            <div class="menu-container">
+                <!--div class="nav-item borde-right">
+                    <a href="Chart.html">便民資訊</a>
+                </div -->
+                <div class="nav-item borde-right">
+                    <a href="game.html" target="_blank">公告資訊</a>
+                </div>
+                <div class="nav-item borde-right">
+				<a href="" target="_blank">活動訊息</a>
+				</div>
+                <div class="nav-item borde-right">
+                    <a href="" target="_blank">銀髮專區</a>
+                </div>
+				<div class="nav-item borde-right">
+                    <a href="" target="_blank">親子樂園</a>
+                </div>
+                <div class="nav-item borde-right">
+                    <a href="DataDesc.html">社群網路服務</a>
+                </div>
+				<div class="nav-item borde-right">
+                    <a href="QA.html">防疫宣導專區</a>
+                </div>
+				<div class="nav-item borde-right">
+                    <a href="DataDesc.html">媒體報導</a>
+                </div>
+				<div class="nav-item">
+                    <a href="/GiraffeAdmin/index.html" style="font-weight:bold;color:#bbb" target="_blank">後台管理</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+    
+<div class="left-1">
+    <div class="menu">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="menu-container">
+                    <!-- search -->
+                    <div class="search">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="tb_keyword"
+                                   placeholder="字句搜尋">
+                            <div class="input-group-append" onclick="send_keyword();">
+                                <span class="input-group-text" id="basic-addon2">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="sub-type recommend">
+                        <div class="line recommend" data-recommend="-1">
+                            <div class="item">
+                                <a href="javascript: void(0);" onclick="select_recommend(-1);">
+                                    最新學訊
+                                </a>
+                                <div class="num icon_recommend">
+                                    34
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- main type -->
+                            <div class="main-type" data-main-id="1">
+                                <a href="javascript: void(0);" onclick="select_main(1);">
+                                    認識英語學堂
+                                </a>
+                                <div class="num icon_1">
+                                    30
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_1">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_1">
+
+                                <div class="line recommend" data-sub-id="1">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(1, -1);">
+                                            識別標章
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="line" data-sub-id="2">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 1);">
+                                              成立宗旨
+                                            </a>
+                                            <div class="num icon_1">
+                                                23
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="3">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 3);">
+                                               學堂環境
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="4">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 4);">
+                                               學堂特色
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="5">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(1, 5);">
+                                              學堂組織
+                                            </a>
+                                            
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>									
+                            </div>
+                            <div class="main-type" data-main-id="2">
+                                <a href="javascript: void(0);"  onclick="select_main(2);">
+                                    新聞英語
+                                </a>
+                                <div class="num icon_2">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_2">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_2">
+
+                                <div class="line recommend" data-sub-id="6">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(2,6);">
+                                            BBC 新聞
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="7">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 7);">
+                                            CNN 有線新聞網  
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="8">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(2, 8);">
+                                            VOA 美國之音
+                                            </a>
+                                            <div class="num icon_2">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>									
+                            </div>
+                           <div class="main-type" data-main-id="3">
+                                <a href="javascript: void(0);"  onclick="select_main(3);">
+                                    商用英語
+                                </a>
+                                <div class="num icon_2">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_3">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_3">
+
+                                <div class="line recommend" data-sub-id="9">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(3, 9);">
+                                           簡報英語
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="10">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 10);">
+                                            電話英語  
+                                            </a>
+                                            <div class="num icon_2">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="11">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 11);">
+                                            郵件英語
+                                            </a>
+                                            <div class="num icon_2">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="12">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(3, 12);">
+                                            社交英語
+                                            </a>
+                                            <div class="num icon_2">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>										
+                            </div>
+       <!-- *************** (七)  Begin ******************** -->                        
+                           <div class="main-type" data-main-id="4">
+                                <a href="javascript: void(0);" onclick="select_main(4);">
+                                     旅遊英語
+                                </a>
+                                <div class="num icon_7">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_4">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_4">
+
+                                <div class="line recommend" data-sub-id="13">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(4, 13);">      	
+                                         環球旅遊觀光用語   
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="line" data-sub-id="14">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 14);">
+                                            TLC 旅遊生活頻道
+                                            </a>
+                                            <div class="num icon_7">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="15">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(4, 15);">
+                                           旅遊創作部落格
+                                            </a>
+                                            <div class="num icon_7">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+       <!--  **************** (七)  End ************************ -->
+	   <!-- *************** (十)  Begin ******************** -->                        
+                           <div class="main-type" data-main-id="5">
+                                <a href="javascript: void(0);" onclick="select_main(5);">
+                                     親子英語
+                                </a>
+                                <div class="num icon_10">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_5">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_5">
+
+                                <div class="line recommend" data-sub-id="16">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(5, 16);">      	
+                                           英語教室
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="17">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 17);">
+                                           英語廚房
+                                            </a>
+                                            <div class="num icon_10">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="18">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(5, 18);">
+                                           童軍活動花絮  
+                                            </a>
+                                            <div class="num icon_10">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+       <!--  **************** (十)  End ************************ -->	   
+       <!-- *************** (六)  Begin ******************** -->                        
+                           <div class="main-type" data-main-id="6">
+                                <a href="javascript: void(0);" onclick="select_main(6);">
+                                     科技英語
+                                </a>
+                                <div class="num icon_6">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_6">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_6">
+
+                                <div class="line recommend" data-sub-id="19">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(6, 19);">      	
+                                           科技詞彙
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="20">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 20);">
+                                           國家地理雜誌
+                                            </a>
+                                            <div class="num icon_6">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="21">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 21);">
+                                           Discovery 頻道
+                                            </a>
+                                            <div class="num icon_6">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="22">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 22);">
+                                           美國太空總署(NASA)
+                                            </a>
+                                            <div class="num icon_6">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+								<div class="line" data-sub-id="23">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(6, 23);">
+                                           國際圓桌會
+                                            </a>
+                                            <div class="num icon_6">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>	
+                            </div>
+       <!--  **************** (六)  End ************************ -->
+       <!--  **************** (八)  End ************************ -->							
+                           <div class="main-type" data-main-id="7">
+                                <a href="javascript: void(0);" onclick="select_main(7);">
+                                    演講英語
+                                </a>
+                                <div class="num icon_1">
+                                    30
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_7">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_7">
+
+                                <div class="line recommend" data-sub-id="24">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(7, 24);">
+                                            TED Talks
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+								
+                               <div class="line" data-sub-id="25">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(7, 25);">
+                                            GOOD TV 國際講員
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="line" data-sub-id="26">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(7, 26);">
+                                            YES英語學習樂園
+                                            </a>
+                                            <div class="num icon_1">
+                                                23
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="27">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(7, 27);">
+                                            國民禮儀外交聯誼會
+                                            </a>
+                                            <div class="num icon_1">
+                                                2
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="28">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(7, 28);">
+                                            大專院校英文簡報競賽
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="29">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(7, 29);">
+                                           英語詩歌朗誦及演講比賽
+                                            </a>
+                                            <div class="num icon_1">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>							
+                            </div>
+        <!-- Menu 增加 Begining -->	   
+	   <!-- *************** (八)  Begin ******************** -->                        
+                           <div class="main-type" data-main-id="8">
+                                <a href="javascript: void(0);" onclick="select_main(8);">
+                                     宗教英語
+                                </a>
+                                <div class="num icon_8">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_8">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_8">
+
+                                <div class="line recommend" data-sub-id="30">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(8, 30);">      	
+                                             宗教詞彙
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="31">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(8, 31);">
+                                             歐讚聖歌
+                                            </a>
+                                            <div class="num icon_8">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="32">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(8, 32);">
+                                             藏傳佛教英文
+                                            </a>
+                                            <div class="num icon_8">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="main-type" data-main-id="9">
+                                <a href="javascript: void(0);" onclick="select_main(9);">
+                                    英語教室
+                                </a>
+                                <div class="num icon_4">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_9">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_9">
+
+                             <div class="line recommend" data-sub-id="33">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(9, 33);">      	
+                                            空中英語教室
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                             </div>
+
+                             <div class="line" data-sub-id="34">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(9, 34);">
+                                            大家說英語
+                                            </a>
+                                           <div class="num icon_4">
+                                                7
+                                           </div>
+                                        </div>
+                            </div>
+							
+                             <div class="line" data-sub-id="35">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(9, 35);">
+                                            AMC 空中美語 
+                                            </a>
+                                           <div class="num icon_4">
+                                                7
+                                           </div>
+                                        </div>
+                            </div>
+
+                             <div class="line" data-sub-id="36">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(9, 36);">
+                                             ABC 互動美語 
+                                            </a>
+                                           <div class="num icon_4">
+                                                7
+                                           </div>
+                                        </div>
+                            </div>							
+							
+							<div class="line" data-sub-id="37">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(9, 37);">
+                                             常春藤生活英語
+                                            </a>
+                                           <div class="num icon_4">
+                                                7
+                                           </div>
+                                        </div>
+                            </div>
+							
+							<div class="line" data-sub-id="38">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(9, 38);">
+                                            唱歌學英語
+                                            </a>
+                                           <div class="num icon_4">
+                                                7
+                                           </div>
+                                        </div>
+                            </div>
+												
+                            </div>
+        <!-- *************** (五)  Begin ******************** -->                        
+                           <div class="main-type" data-main-id="10">
+                                <a href="javascript: void(0);" onclick="select_main(10);">
+                                     英語寫作
+                                </a>
+                                <div class="num icon_5">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_10">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_10">
+
+                                <div class="line recommend" data-sub-id="39">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(10, 39);">      	
+                                             散文創作
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="40">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(10, 40);">
+                                             經典小說
+                                            </a>
+                                            <div class="num icon_5">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="41">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(10, 41);">
+                                             希臘神話故事
+                                            </a>
+                                            <div class="num icon_5">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+       <!-- **************** (五)  End ************************ -->
+       <!-- *************** (九)  Begin ******************** -->                        
+                           <div class="main-type" data-main-id="11">
+                                <a href="javascript: void(0);" onclick="select_main(11);">
+                                     志工專區
+                                </a>
+                                <div class="num icon_9">
+                                    19
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_11">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_11">
+
+                                <div class="line recommend" data-sub-id="42">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(11, 42);">      	
+                                             城鄉跨域英語智慧學習村
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            4
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="43">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(11, 43);">
+                                             109年國際志工英語營交流活動成果
+                                            </a>
+                                            <div class="num icon_9">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="44">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(11, 44);">
+                                              108年國際志工英語營交流<BR>活動成果
+                                            </a>
+                                            <div class="num icon_9">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+								  <div class="line" data-sub-id="45">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(11, 45);">
+                                              107年國際志工英語營交流<BR>活動成果
+                                            </a>
+                                            <div class="num icon_9">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+       <!--  **************** (九)  End ************************ -->
+	   <!-- *************** (十一)  Begin ******************** -->                        
+                             <div class="main-type" data-main-id="12">
+                                <a href="javascript: void(0);" onclick="select_main(12);">
+                                    精選專題
+                                </a>
+                                <div class="num icon_11">
+                                    42
+                                </div>
+                                <div class="chevron"
+                                     data-toggle="collapse" href="#sub_type_12">
+                                    <i class="fa fa-chevron-down expand-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- sub main-->
+                            <div class="sub-type collapse show" id="sub_type_12">
+
+                                <div class="line recommend" data-sub-id="46">
+                                    <div class="item">
+                                        <a href="javascript: void(0);" onclick="select_sub(12, 46);">
+                                            詞彙字典查詢技巧
+                                        </a>
+                                        <div class="num icon_recommend">
+                                            14
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="line" data-sub-id="47">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 47);">
+                                                科技詞彙查詢技巧
+                                            </a>
+                                            <div class="num icon_11">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="48">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 48);">
+                                                實用文法分析學程
+                                            </a>
+                                            <div class="num icon_11">
+                                                9
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="49">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 49);">
+                                               行動學習英文策略
+                                            </a>
+                                            <div class="num icon_11">
+                                                11
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="50">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 50);">
+                                                英文學習輔助工具
+                                            </a>
+                                            <div class="num icon_11">
+                                                7
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="51">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 51);">
+                                                快速提升英文聽力
+                                            </a>
+                                            <div class="num icon_11">
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="52">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 52);">
+                                                YES英語學習樂園
+                                            </a>
+                                            <div class="num icon_11">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="53">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 53);">
+                                                英文推廣教育網
+                                            </a>
+                                            <div class="num icon_11">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line" data-sub-id="54">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 54);">
+                                                學習認證中心
+                                            </a>
+                                            <div class="num icon_11">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="line" data-sub-id="55">
+                                        <div class="item">
+                                            <a href="javascript: void(0);" onclick="select_sub(12, 55);">
+                                               相關網站
+                                            </a>
+                                            <div class="num icon_11">
+                                                5
+                                            </div>
+                                        </div>
+                                    </div>										
+                            </div>
+       <!--  **************** (十一)  End ************************ -->
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</div>
+
+
+
+<div class="left-2 chart-container">
+<div class="title-sub1">
+    
+</div>
+<div class="row">
+</div>
+
+<div class="title-sub2">
+    
+</div>
+<div class="row2">
+<table cellpadding="10">
+ <tbody><tr><td>
+    <video width="380" height="250" controls><source src="data/trump.mp4" type="video/mp4" />
+     影片無法播放，請改用別的瀏覽器，或將影片<a href="data/trump.mp4">下載</a>後再播放。
+   </video>
+</td>
+<td>
+    <video width="380" height="250" controls><source src="data/McEnany.mp4" type="video/mp4" />
+    影片無法播放，請改用別的瀏覽器，或將影片<a href="data/trump.mp4">下載</a>後再播放。
+    </video>
+</td>
+<td>
+    <video width="380" height="250" controls><source src="data/TrumpVsPelosi.mp4" type="video/mp4" />
+    影片無法播放，請改用別的瀏覽器，或將影片<a href="data/trump.mp4">下載</a>後再播放。
+    </video>
+</td></tr>
+<tr>
+<td>
+    <video width="380" height="250" controls><source src="data/ignorehandshake.mp4" type="video/mp4" />
+     影片無法播放，請改用別的瀏覽器，或將影片<a href="data/trump.mp4">下載</a>後再播放。
+   </video>
+</td>
+<td>
+    <video width="380" height="250" controls><source src="data/TaoyuanVirus.mp4" type="video/mp4" />
+     影片無法播放，請改用別的瀏覽器，或將影片<a href="data/TaoyuanVirus.mp4">下載</a>後再播放。
+   </video>
+</td>
+<td>
+    <video width="380" height="250" controls><source src="data/BidenPresident.mp4" type="video/mp4" />
+     影片無法播放，請改用別的瀏覽器，或將影片<a href="data/BidenPresident.mp4">下載</a>後再播放。
+   </video>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+
+<!-- templete-->
+<div id="chart_item_templete" style="display:none;">
+    <div onmousemove="show_text(this);" onmouseout="hide_text(this);">
+        <a href="%7burl%7d.html" target="_blank">
+                <div class="text" data-text="{name}" data-short="{short-name}">
+                    {short-name}  <span class="date-font">({announce-date})</span>
+                </div>
+        </a>
+    </div>
+</div>
+
+<div id="chart_no_data" style="display: none;">
+    <div class="no_data">
+        <div>
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            <br />
+            查詢條件, 沒有相符合的圖表
+            <br />
+            請重新查詢
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>
